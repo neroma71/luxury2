@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Candidature;
 use App\Entity\Client;
 use App\Entity\OffreEmploi;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;

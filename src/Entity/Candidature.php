@@ -28,7 +28,10 @@ class Candidature
     {
         
     }
-
+    public function __toString()
+    {
+        return $this->offreEmploi;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -58,8 +61,4 @@ class Candidature
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->offreEmploi;
-    }
 }

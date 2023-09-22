@@ -3,18 +3,43 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
+<div class="base">
+    <div class="page">
+ <section class="section-padding gray-bg log-section">
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 card card-panel">
+                        <h3 class="text-extrabold">Create a new account</h3>
+ <form id="register-form" role="form" method="post" accept-char="UTF-8" autocomplete="off" data-parsley-validate>
     {{ form_errors(registrationForm) }}
-
     {{ form_start(registrationForm) }}
+    <div class="input-field">
         {{ form_row(registrationForm.email) }}
+        <span class="help-block">Type your email address.</span>
+     </div>
+     <div class="input-field">
         {{ form_row(registrationForm.name) }}
+    <i class="fa fa-eye show-password"></i>
+    </div>
+    <div class="input-field">
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+         <i class="fa fa-eye show-password"></i>
+        <span class="help-block">Type your password.</span>
+    </div>
+    <div class="checkbox">
         {{ form_row(registrationForm.agreeTerms) }}
+        <label for="accept-terms">I have read and I accept the <a href="#!" target="_blank">Terms Of Use</a></label>
+    </div>
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-lg gradient secondary btn-block waves-effect waves-light mt-20 mb-20">Register</button>
     {{ form_end(registrationForm) }}
+    </form>
+    </div>
+    </div>
+    </div>
+</section>
+ </div>
+</div>
 {% endblock %}
