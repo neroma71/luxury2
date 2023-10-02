@@ -53,10 +53,6 @@ class OffreEmploi
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateCreation = null;
 
-    #[ORM\ManyToOne(inversedBy: 'offreEmploi')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Candidature $offre = null;
-
     #[ORM\OneToMany(mappedBy: 'offreEmploi', targetEntity: Candidature::class, orphanRemoval: true)]
     private Collection $candidatures;
 
@@ -67,7 +63,7 @@ class OffreEmploi
 
     public function __toString()
     {
-        return $this->offre;
+        return $this->jobTitle;
     }
 
     public function getId(): ?int
@@ -219,18 +215,6 @@ class OffreEmploi
         return $this;
     }
 
-    public function getOffre(): ?Candidature
-    {
-        return $this->offre;
-    }
-
-    public function setOffre(?Candidature $offre): static
-    {
-        $this->offre = $offre;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Candidature>
      */
@@ -260,5 +244,5 @@ class OffreEmploi
 
         return $this;
     }
-    
+
 }

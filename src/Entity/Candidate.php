@@ -55,7 +55,7 @@ class Candidate
     #[ORM\Column(type: Types::TEXT)]
     private ?string $shortDescription = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $notes = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

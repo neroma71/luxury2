@@ -3,13 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Candidate;
-use Doctrine\DBAL\Types\BooleanType;
+use App\Entity\Media;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,6 +15,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormCandidateType extends AbstractType
 {
+
+    public const IMAGES_BASE_PATH = 'asset/uploads/';
+    public const IMAGES_BASE_DIR =  'public/asset/uploads/';
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -57,8 +59,11 @@ class FormCandidateType extends AbstractType
                     'class' => 'active',
                 ]
             ])
-            ->add('dateBirth', TextType::class,[
-                'label' => 'Date Birth'
+            ->add('dateBirth', DateType::class,[
+                'label' => 'Date Birth',
+                'label_attr' => [
+                    'class' => 'active',
+                ]
             ])
             ->add('placeBirth', TextType::class, [
                'label' => 'Place birth' 
@@ -72,6 +77,7 @@ class FormCandidateType extends AbstractType
                 'label_attr' => [
                     'class' => 'active',
                 ],
+                'label' => 'Valide CV',
             ])
             ->add('jobCategory', ChoiceType::class, [
                 'choices'  => [
@@ -99,10 +105,14 @@ class FormCandidateType extends AbstractType
                 'label' => 'short description'
             ])
             ->add('profilPicture', FileType::class,[
-                'label' => 'Porfile picture'
-            ] )
-            ->add('passport', FileType::class)
-            ->add('cv', FileType::class)
+                'mapped' => false
+            ])
+            ->add('passport', FileType::class,[
+                'mapped' => false
+            ])
+            ->add('cv', FileType::class,[
+                'mapped' => false
+            ])
         ;
     }
 

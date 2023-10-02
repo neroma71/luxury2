@@ -47,7 +47,7 @@ class RegistrationController extends AbstractController
             ->subject('cliker sur le lien pour activer le compte !')
             //->text('Sending emails is fun again!')
             ->html('<h2>congratulation votre compte à été créé</h2>
-                <p>bienvenu</p>
+                <p>bienvenue</p>
             ');
 
         $mailer->send($email);

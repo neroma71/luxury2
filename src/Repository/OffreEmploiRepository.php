@@ -45,4 +45,25 @@ class OffreEmploiRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function findOffrePrecedente(OffreEmploi $offreEmploi)
+{
+    return $this->createQueryBuilder('o')
+        ->where('o.id < :currentId')
+        ->setParameter('currentId', $offreEmploi->getId())
+        ->orderBy('o.id', 'DESC')
+        ->setMaxResults(1)
+        ->getQuery()
+        ->getOneOrNullResult();
+} 
+public function findOffreSuivante(OffreEmploi $offreEmploi)
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.id > :currentId')
+            ->setParameter('currentId', $offreEmploi->getId())
+            ->orderBy('o.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 }

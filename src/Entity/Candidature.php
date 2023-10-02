@@ -23,14 +23,10 @@ class Candidature
     #[ORM\JoinColumn(nullable: false)]
     private ?OffreEmploi $offreEmploi = null;
 
-
+  
     public function __construct()
     {
         
-    }
-    public function __toString()
-    {
-        return $this->offreEmploi;
     }
     public function getId(): ?int
     {
@@ -60,5 +56,4 @@ class Candidature
 
         return $this;
     }
-
 }

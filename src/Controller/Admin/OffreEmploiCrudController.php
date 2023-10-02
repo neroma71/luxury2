@@ -23,14 +23,13 @@ class OffreEmploiCrudController extends AbstractCrudController
         return [
             TextField::new('ref'),
             TextField::new('description'),
-            AssociationField::new('offre')
-            ->autocomplete()->setLabel('Candidature'),
             BooleanField::new('is_active'),
             TextField::new('notes'),
             AssociationField::new('client')
             ->autocomplete(),
             TextField::new('job_title'),
             TextField::new('job_type'),
+            TextField::new('location'),
             TextField::new('job_category'),
             DateField::new('closing_date'),
             IntegerField::new('salary'),
