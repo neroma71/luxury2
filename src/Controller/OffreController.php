@@ -19,6 +19,7 @@ class OffreController extends AbstractController
             'offres' => $offres,
         ]);
     }
+
     #[Route('/offre/{id}', name: 'app_offre_show')]
     public function show($id, OffreEmploiRepository $offreEmploiRepository): Response
     {
@@ -27,8 +28,7 @@ class OffreController extends AbstractController
         if (!$offreEmploi) {
             throw $this->createNotFoundException('Offre d\'emploi non trouvée');
         }
-         
-        $offrePrecedente = $offreEmploiRepository->findOffrePrecedente($offreEmploi);
+        $offrePrecedente =  $offreEmploiRepository->findOffrePrecedente($offreEmploi);
         $offreSuivante = $offreEmploiRepository->findOffreSuivante($offreEmploi);
 
         return $this->render('offre/show.html.twig', [

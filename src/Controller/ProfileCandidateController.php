@@ -8,10 +8,11 @@ use App\Form\FormCandidateType;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Uid\Uuid;
 
 class ProfileCandidateController extends AbstractController
 {
@@ -46,6 +47,10 @@ class ProfileCandidateController extends AbstractController
         //    dd($candidate);
             
             $directory1 = $this->getParameter('kernel.project_dir') . '/public/assets/uploads/';
+
+            /**
+             * @var UploadedFile $profil
+             */
             $profil = $form['profilPicture']->getData();
 
             $profileMedia = new Media();
@@ -53,10 +58,10 @@ class ProfileCandidateController extends AbstractController
             if ($profil) {
                 $extension = $profil->guessExtension();
                 if (!$extension) {
-                    $extension = 'bin';
+                    $extension = 'png';
                 }
                 
-                $profilPicture = uniqid('', true) . '.' . $extension;
+                $profilPicture = Uuid::v7() . '.' . $extension;
                 $profil->move($directory1, $profilPicture);
                 $profileMedia->setPath($profilPicture);
                 $candidate->setProfilPicture($profileMedia);
@@ -70,10 +75,10 @@ class ProfileCandidateController extends AbstractController
             if ($passport) {
                 $extension = $passport->guessExtension();
                 if (!$extension) {
-                    $extension = 'bin';
+                    $extension = 'png';
                 }
                 
-                $passportPicture = uniqid('', true) . '.' . $extension;
+                $passportPicture = Uuid::v7() . '.' . $extension;
                 $passport->move($directory2, $passportPicture);
                 $passportMedia->setPath($passportPicture);
                 $candidate->setPassport($passportMedia);
@@ -87,10 +92,10 @@ class ProfileCandidateController extends AbstractController
             if ($cv) {
                 $extension = $cv->guessExtension();
                 if (!$extension) {
-                    $extension = 'bin';
+                    $extension = 'png';
                 }
                 
-                $cvPicture = uniqid('', true) . '.' . $extension;
+                $cvPicture = Uuid::v7() . '.' . $extension;
                 $cv->move($directory3, $cvPicture);
                 $cvMedia->setPath($cvPicture);
                 $candidate->setCv($cvMedia);

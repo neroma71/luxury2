@@ -105,13 +105,28 @@ class FormCandidateType extends AbstractType
                 'label' => 'short description'
             ])
             ->add('profilPicture', FileType::class,[
-                'mapped' => false
+                'mapped' => false,
+                'required' => false,
+                'attr' => [
+                    'size' => 20000000,
+                    'accept' => '.pdf,.jpg,.doc,.docx,.png,.gif',
+                ]
             ])
             ->add('passport', FileType::class,[
-                'mapped' => false
+                'mapped' => false,
+                'required' => false,
+                'attr' => [
+                    'size' => 20000000,
+                    'accept' => '.pdf,.jpg,.doc,.docx,.png,.gif',
+                ]
             ])
             ->add('cv', FileType::class,[
-                'mapped' => false
+                'mapped' => false,
+                'required' => false,
+                'attr' => [
+                    'size' => 20000000,
+                    'accept' => '.pdf,.jpg,.doc,.docx,.png,.gif',
+                ]
             ])
         ;
     }
