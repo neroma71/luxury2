@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Candidate;
 use App\Entity\Candidature;
 use App\Entity\Client;
 use App\Entity\OffreEmploi;
@@ -47,5 +48,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('User', 'fas fa-list', User::class);
         yield MenuItem::linkToCrud('Client', 'fas fa-list', Client::class);
         yield MenuItem::linkToCrud('Offres', 'fas fa-list', OffreEmploi::class);
+        yield MenuItem::linkToCrud('Candidate', 'fas fa-list', Candidate::class);
+        yield MenuItem::linkToCrud('Candidature', 'fas fa-list', Candidature::class);
     }
 }

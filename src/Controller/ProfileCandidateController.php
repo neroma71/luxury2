@@ -125,6 +125,7 @@ class ProfileCandidateController extends AbstractController
 
         return $this->render('profile/index.html.twig', [
             'formCandidate' => $form->createView(),
+            'candidate' => $candidate
         ]);
     }
 }

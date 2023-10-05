@@ -69,10 +69,6 @@ class Candidate
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Media $profilPicture = null;
 
 
@@ -87,9 +83,18 @@ class Candidate
     #[ORM\OneToMany(mappedBy: 'candidate', targetEntity: Candidature::class, orphanRemoval: true)]
     private Collection $candidatures;
 
+    #[ORM\OneToOne(inversedBy: 'candidate', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->candidatures = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->firstName.' '.$this->lastName;
     }
 
    
@@ -302,18 +307,6 @@ class Candidate
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getProfilPicture(): ?Media
     {
         return $this->profilPicture;
@@ -377,6 +370,18 @@ class Candidate
                 $candidature->setCandidate(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

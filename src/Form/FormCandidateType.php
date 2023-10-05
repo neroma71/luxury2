@@ -81,9 +81,14 @@ class FormCandidateType extends AbstractType
             ])
             ->add('jobCategory', ChoiceType::class, [
                 'choices'  => [
-                    'informatique' => 'informatique',
-                    'tertiary' => 'tertiary',
-                    'building' => 'building'
+                    'Commercial' => 'Commercial',
+                    'Retail Sales' => 'RetailSales',
+                    'Creative' => 'Creative',
+                    'Technology' => 'Technology',
+                    'Marketing & PR' => 'Marketing&PR',
+                    'Fashion & Luxury' => 'Fashion&Luxury',
+                    'Management & HR' => 'Management&HR',
+                    
                 ],
                 'label' => 'Interest in job category',
                 'label_attr' => [

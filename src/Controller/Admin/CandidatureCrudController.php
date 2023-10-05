@@ -14,13 +14,17 @@ class CandidatureCrudController extends AbstractCrudController
     }
 
     public function configureFields(string $pageName): iterable
-    {
-        return [
-            AssociationField::new('client')
-            ->autocomplete(),
-            AssociationField::new('offre')
-            ->autocomplete(),
-        ];
-    }
     
+    {
+        
+       return [
+        
+            AssociationField::new('candidate')
+            ->hideOnForm(),
+            AssociationField::new('offreEmploi')
+            ->hideOnForm(),
+        ];
+        
+    }
+   
 }

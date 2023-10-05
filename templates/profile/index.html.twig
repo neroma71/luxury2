@@ -91,7 +91,7 @@
                 <div class="row">
                     <div class="score-container">
                         <h4>
-                            <img src="https://i.imgur.com/s9bPVaK.gif" style="height: 80px; width: 201px;"> &nbsp;
+                            <img src="{{ asset('assets/uploads/') }}{{candidate.profilPicture.path}}" style="height: 80px; width: 201px;"> &nbsp;
                             &nbsp; Hooray ! Your profile is complete.
                         </h4>
                         <div class="c100 p100 small complete ">
@@ -142,13 +142,14 @@
                                     <span><i class="material-icons">insert_photo</i> Photo</span>
                                     {{ form_row(formCandidate.profilPicture) }}
                                 </div>
-
+                                {% if formCandidate.profilPicture %}
                                 <div class="existing-file">
-                                    <a href="#!" target="_blank"><i class="material-icons">&#xE24D;</i> profil_picture.jpg</a>
+                                    <a href="{{ asset('assets/uploads/') }}{{candidate.profilPicture.path}}" target="_blank"><i class="material-icons">&#xE24D;</i> profil_picture.jpg</a>
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Upload your ID photo" readonly>
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-8">
@@ -187,7 +188,7 @@
                                         {{ form_widget(formCandidate.passport) }}
                                     </div>
                                     <div class="existing-file">
-                                        <a href="#!" target="_blank"><i class="material-icons">&#xE24D;</i> passeport.jpg</a>
+                                        <a href="{{ asset('assets/uploads/') }}{{candidate.profilPicture.path}}" target="_blank"><i class="material-icons">&#xE24D;</i> passeport.jpg</a>
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text" placeholder="Upload your passport" readonly>
@@ -201,7 +202,7 @@
                                     </div>
 
                                     <div class="existing-file">
-                                        <a href="#!" target="_blank"><i class="material-icons">&#xE24D;</i> CV.pdf</a>
+                                        <a href="{{ asset('assets/uploads/') }}{{candidate.profilPicture.path}}" target="_blank"><i class="material-icons">&#xE24D;</i> CV.pdf</a>
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text" placeholder="Upload your Curriculum Vitae" readonly>
@@ -273,7 +274,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4">
-                            <a href="#!" class="btn btn-block btn-lg border primary waves-effect waves-light"><i class="fa fa-long-arrow-left"></i> Back home</a>
+                            <a href="{{ path('app_home')}}" class="btn btn-block btn-lg border primary waves-effect waves-light"><i class="fa fa-long-arrow-left"></i> Back home</a>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
                             <button type="submit" class="btn btn-block btn-lg gradient secondary waves-effect waves-light">

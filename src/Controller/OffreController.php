@@ -37,5 +37,4 @@ class OffreController extends AbstractController
             'offreSuivante' => $offreSuivante,
         ]);
     }
-
 }
