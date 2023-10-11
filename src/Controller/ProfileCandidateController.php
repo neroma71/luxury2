@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Candidate;
 use App\Entity\Media;
+use App\Entity\User;
 use App\Form\FormCandidateType;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,6 +20,9 @@ class ProfileCandidateController extends AbstractController
     #[Route('/profile', name: 'app_profile_candidate')]
     public function index(Request $request,  EntityManagerInterface $entityManager): Response
     {
+        /**
+         * @var User $user
+         */
         $user = $this->getUser();
 
         // si un user n'existe pas on redirige vers la page login
@@ -26,11 +30,8 @@ class ProfileCandidateController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        //on passe à une variable l'entitymanager pour récupérer le répository de la class
-        $repositoryCandidate = $entityManager->getRepository(Candidate::class);
-
         //on utitlise la methode du repository findOneBy qui prend un tableaux en paramêtre, ici user
-        $candidate = $repositoryCandidate->findOneBy(['user' => $user]);
+        $candidate = $user->getCandidate();
 
         // on fait une condition pour savoir si le canditat est vide alors on le crée avec $candidate = new Candidate
         if($candidate === null){

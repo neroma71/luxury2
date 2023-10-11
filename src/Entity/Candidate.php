@@ -385,5 +385,4 @@ class Candidate
 
         return $this;
     }
-
 }

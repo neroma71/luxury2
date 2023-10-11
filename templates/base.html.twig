@@ -5,23 +5,27 @@
 		<title>
 			{% block title %}Luxury Services recruitment & services
 			{% endblock %}
+
+		</title>
+		
+			
 			{% block meta %}
 			{% endblock %}
 			
-		</title>
+		
 
 		
 		{% block javascriptshaut %}{% endblock %}
 	{% block stylesheet %}{% endblock %}
 		<link href="/assets/css/main.css" rel="stylesheet">
 
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.materialize.a1042cadda540464eafd9350bb40433a_1547807689.css" rel="stylesheet">
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.bootstrap.457005dcd8ab887d5f47791eaa1e3a26_1547807834.css" rel="stylesheet">
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.style.117d2669c8fdd6628dab9a45764bc512_1549289703.css" rel="stylesheet">
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.custom.6b4d49f73674949c14f1216c6eddcb85_1547807836.css" rel="stylesheet">
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.revolution-settings.77c694ef3fb511bf87c5b705b555fc2a_1547807825.css" rel="stylesheet">
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.revolution-layers.4f1e49eeb6f7351bbdc1fb6e35adb6ed_1547807826.css" rel="stylesheet">
-		<link href="http://kys.idmkr.io/cache/assets/frontend.kys.revolution-navigation.2f4deeb1fe1d3f7c9ab31d29a1133835_1547807825.css" rel="stylesheet">
+		<link href="https://assets-luxury.projets.garage404.com/css/materialize.css" rel="stylesheet">
+    	<link href="https://assets-luxury.projets.garage404.com/css/bootstrap.css" rel="stylesheet">
+   		<link href="https://assets-luxury.projets.garage404.com/css/style.css" rel="stylesheet">
+    	<link href="https://assets-luxury.projets.garage404.com/css/custom.css" rel="stylesheet">
+    	<link href="https://assets-luxury.projets.garage404.com/css/revolution-settings.css" rel="stylesheet">
+    	<link href="https://assets-luxury.projets.garage404.com/css/revolution-layers.css" rel="stylesheet">
+    	<link href="https://assets-luxury.projets.garage404.com/css/revolution-navigation.css" rel="stylesheet">
 
 
 
@@ -171,22 +175,22 @@
 				<div class="container">
 					<ul class="" role="navigation">
 						<li class="active dropdown">
-							<a target="_self" href="/">
+							<a target="_self" href="{{ path('app_home')}}">
 								<span>Home</span>
 							</a>
 						</li>
-						<li class=" dropdown">
-							<a target="_self" href="/template/jobs/jobs.html">
+						<li class="dropdown">
+							<a target="_self" href="{{ path('app_offre')}}">
 								<span>Jobs offers</span>
 							</a>
 						</li>
-						<li class=" dropdown">
-							<a target="_self" href="/templates/compagny.html">
+						<li class="dropdown">
+							<a target="_self" href="{{ path('app_compagny') }}">
 								<span>About us</span>
 							</a>
 						</li>
-						<li class=" dropdown">
-							<a target="_self" href="/templates/contact.html">
+						<li class="dropdown">
+							<a target="_self" href="{{ path('app_contact') }}">
 								<span>Contact</span>
 							</a>
 						</li>

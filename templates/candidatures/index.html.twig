@@ -29,7 +29,7 @@
                     <ul>
                      {% for candidature in candidatures %}
                         <li>
-                            <p> Votre nom : {{ candidature.candidate.firstName }}, votre prenom : {{ candidature.candidate.lastName }} catgories {{ candidature.offreEmploi.jobCategory }} Emploi {{ candidature.offreEmploi.jobTitle }} Type {{ candidature.offreEmploi.jobType }}</p>
+                            <p> Votre nom : {{ candidature.candidate.firstName }}, votre prenom : {{ candidature.candidate.lastName }} catgories {{ candidature.offreEmploi.jobCategory }} Emploi {{ candidature.offreEmploi.jobTitle }} Type d'emploi {{ candidature.offreEmploi.jobType }}</p>
                         </li>
                         {% endfor %}
                     </ul>
